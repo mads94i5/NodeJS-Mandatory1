@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../img/node-js-logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/oswald-4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+    <script>
+        function scrollToTop() {
+            document.body.scrollTop = 0; /* For Safari */
+            document.documentElement.scrollTop = 0; /* For Chrome, Firefox, IE, and Opera */
+        }
+    </script>
+    <title>NodeJS Documentation</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h2 class="no-margin text-center"><strong>NodeJS Documentation</strong></h2>
+        </div>
+        <nav>
+            <a href="/"><button class="btn nav-btn btn-success"><strong>Home</strong></button></a>
+            <a href="/nodejs"><button class="btn nav-btn btn-success"><strong>NodeJS</strong></button></a>
+            <div class="login-area">
+                <a href="/admin"><button class="btn nav-btn btn-success"><strong>Admin</strong></button></a>
+                <a href="/login"><button class="btn btn-success"><strong>Login</strong></button></a>
+            </div>
+        </nav>
+    </header>
+    <hr class="no-margin">
+    <div class="container">
+        <h1 class="text-center">Documentation | Page 1</h1><br>
+        <p class="text-center">
+        <div class="row btn-row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4 text-center">
+                <a href="/nodejs"><button class="btn btn-danger"><strong>Back</strong></button></a>
+            </div>
+            <div class="col-sm-4 text-right">
+                <a href="/doc2"><button class="btn btn-primary"><strong>Page 2</strong></button></a>
+            </div>
+        </div>
+        <h3>Intro to Node.JS</h3>
+        <p>
+            Node is an open source, cross platform runtime environment, where you can run JavaScript.<br>
+            Can be used for server applications, GUI applications, command line applications etc.<br><br>
+        </p>
+        <h4>Installation</h4>
+        <p>
+            Download and run the installer from <a href="https://nodejs.org">nodejs.org</a> on Windows/macOS/Linux.<br>
+            Or follow the instructions to <a href="https://nodejs.org/en/download/package-manager">install via package
+                manager</a>.
+        </p>
+        <h4>Set up project</h4>
+        <p>
+            Go to github and create a new repository with "Node" gitignore. When using vscode, also add: .vscode<br>
+            Open a terminal, navigate to the desired project directory using:
+        </p>
+        <pre><code class="bash">cd &lt;directoryname&gt;</code></pre>
+        <p>
+            Then clone the github project by writing:
+        </p>
+        <pre><code class="bash">git clone &lt;url&gt;</code></pre>
+        <p>
+            Replace &lt;url&gt; with the URL of the github repository.<br>
+            Once it's finished cloning, simply write:
+        </p>
+        <pre><code class="bash">code .</code></pre>
+        <p>
+            This will open the current directory in VSCode.<br>
+            We can do this, since we will already be in the directory of the project.<br>
+            Now check the Node version, to make sure everything is working correctly:<br>
+        </p>
+        <pre><code class="bash">node -v</code></pre>
+        <p>
+            If the version number gets echoed in the terminal, Node is working.<br>
+            Now, to run JavaScript files with Node, navigate to the directory of the file and type:<br>
+        </p>
+        <pre><code class="bash">node &lt;filename&gt;</code></pre>
+        <p>
+            You can also open Node REPL (Read-eval-print loop) by simply typing:
+        </p>
+        <pre><code class="bash">node</code></pre>
+        <p>
+            REPL can be used to write and execute code directly in the terminal.<br>
+            For example, if you write:
+        </p>
+        <pre><code class="bash">2+2</code></pre>
+        <p>
+            And then press enter, then "4" will be printed to the terminal as well.<br><br>
+            Now, to push code changes to the github repository, we first need to add our changes to git:<br>
+        </p>
+        <pre><code class="bash">git add -A</code></pre>
+        <p>
+            The modifer "-A" means "all", which means all changes will be added to git.<br>
+            Meanwhile, the modifer "." only adds the current path and all subpaths.<br>
+            To commit what we added to git, write:<br>
+        </p>
+        <pre><code class="bash">git commit -m "&lt;commit message&gt;"</code></pre>
+        <p>
+            Then we have committed our local changes to our local git branch.<br>
+            To push our local git branch to the github repository, type:<br>
+        </p>
+        <pre><code class="bash">git push</code></pre>
+        <br>
+        <h3>Variables, data types</h3>
+        <h4>Variables</h4>
+        <p>
+            Variables are used to store data in memory during runtime. In JavaScript, the keyword
+            'var' was the original way to declare variables. But this is now considered outdated
+            and is not recommended for modern development.<br>
+            Variables declared with 'var' have function scope or global scope, depending on where
+            they are declared. This can lead to unintended variable hoisting and scope-related issues.<br>
+            In practice, this means you can use a variable before it is declared, giving the inital value
+            of 'undefined'.
+            Example of 'var' declaration:<br>
+        </p>
+        <pre><code class="js">var name = "John"</code></pre>
+        <p>
+            In 2015, ES6 was introduced and in turn also a new way to declare viables in JavaScript.<br>
+            The new keywords 'let' and 'const' were added. With both having block scope, meaning they
+            are only accessible within the block where they are defined.<br>
+            Variables declared with 'let' can be reassigned after initialization, but 'const' can not.
+            However, the value 'const' points to, in case of objects and arrays, can be modified.<br>
+            Examples of 'let' and 'const':<br>
+        </p>
+        <pre><code class="js">let age = 30;
+const pi = 3.14159;
+
+age = 31;
+
+console.log(age); // Output: 31
+console.log(pi); // Output: 3.14159</code></pre>
+        <p>
+            In JavaScript, the naming convention of variables is to use camelCase and variable names
+            are case-sensitive. Descriptive and meaningful naming makes code more readable.<br>
+        </p>
+        <h4>Data types</h4>
+        <p>
+            Data types in JavaScript are loosely typed (also known as dynamically typed), meaning that
+            variable data types are determined at runtime.<br>
+            JavaScript has type coercion and types are interpreted. So if you add a string with a number, the number
+            becomes a string:<br>
+        </p>
+        <pre><code class="bash">2 + "2" // returns "22"</code></pre>
+        <p>
+            JavaScript has 7 different primitive data types:<br>
+            <br>
+            Number: represents both integer and floating-point numbers.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let num = 42;
+let decimalNum = 5.63;</code></pre>
+        <p>
+            String: represents a sequence of characters. There are 3 different operators to declare a string.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">// If I need single quotes:
+let first = "This is the 'first' way";
+// If I need double quotes:
+let second = 'This is the "second" way';
+// If I need both or variable in the middle or need multi-line:
+let third = `This is the "${2 + 1}rd' way.
+this 
+is
+multi-line`;</code></pre>
+        <p>
+            Boolean: represents a binary value, either 'true' or 'false'.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let isTrue = true;
+let isFalse = false;</code></pre>
+        <p>
+            Undefined: represents a value that has been declared but not assigned a value.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let undefinedVar;</code></pre>
+        <p>
+            Null: represents an intentional absense of any object value or value at all.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let emptyValue = null;</code></pre>
+        <p>
+            Symbol (ES6+): represents a unique and immutable value.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">const uniqueSymbol = Symbol("description");</code></pre>
+        <p>
+            BigInt (ES11+): represents large integers that cannot be represented by the 'Number' type.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">const bigIntValue = 1234567890123456789012345678901234567890n;</code></pre>
+        <br>
+        <p>
+            JavaScript also has 7 different reference data types:<br>
+        </p>
+        <p>
+            Object: represents a collection of key-value pairs, where keys are strings (or Symbols) and
+            can be of any data type. Objects are created using object literals '{}' or the 'new Object()'
+            constructor.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let person = {
+    name: "Alice",
+    age: 30
+};</code></pre>
+        <p>
+            Array: represents an ordered collection of values, which can be of any data type.
+            Arrays are created using array literals '[]' or the 'new Array()' constructor.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let numbers = [1, 2, 3, 4, 5];</code></pre>
+        <p>
+            Date: represents dates and times. Date objects can be create using the 'Date()', 'new Date()' constructors
+            or the static method 'Date.now()'.<br>
+            When you call 'Date()' without any arguments, it returns a string representing the current date and time in
+            the local time zone.<br>
+            When 'new Date()' is called, it gives the current date and time in UTC.<br>
+            When the 'Date.now()' static method is called, it returns the current timestamp as the number of
+            milliseconds since January 1st, 1970. Also known as the Unix epoch or epoch timestamp.
+            Example:<br>
+        </p>
+        <pre><code class="js">console.log("Date():", Date());
+// Output: Date(): Fri Sep 21 2023 14:30:00 GMT+0200 (Central European Summer Time)
+console.log("new Date():", new Date());
+// Output: new Date(): Fri Sep 23 2023 11:30:00 GMT+0000 (Coordinated Universal Time)
+console.log("Date.now():", Date.now());
+// Output: Date.now(): 1669216200000</code></pre>
+        <p>
+            RegExp: represents regular expressions, used for pattern matching.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">let pattern = /abc/;</code></pre>
+        <p>
+            Map: is a collection for storing key-value pairs.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">// Creating a map:
+let map = new Map();
+// Adding to a map:
+map.set("name", "Alice");
+// Accessing values in a map:
+console.log(map.get("name")); // Output: "Alice"
+// Checking if a key exists in a map:
+console.log(map.has("name"));    // Output: true
+// Deleting a key-value pair in a map:
+map.delete("age");</code></pre>
+        <p>
+            Set: is a collection for storing unique values. It does not allow duplicate values.<br>
+            Example:<br>
+        </p>
+        <pre><code class="js">// Creating a set:
+let set = new Set();
+// Adding to a set:
+set.add("apple");
+// Checking if a value exists in a set:
+console.log(mySet.has("banana"));   // Output: false
+// Deleting a value in a set:
+set.delete("apple");</code></pre>
+        <br>
+        <h3>REST API conventions</h3>
+        <p>
+            In REST, everything is treated as a resource, which is defined by a unique
+            URL. Resources can represent entities, such as users and products.
+            There are conventions for the URL path of resources, depending on the
+            HTTP methods used.<br>
+            Firstly, it is common to use '/api' for an application programming interface URL.<br>
+            Secondly, for versioning purposes and backwards compatibility, using '/v1' etc.
+            with the version number of the API is common practice. This ensures that anyone
+            using the API will not have their applications broken by updates to the API.<br>
+            Thirdly, when naming resources, it's a convention to use plural nouns
+            for resource names to indicate you are working with a collection of items.
+            For example '/users' instead of '/user'.<br>
+            A full CRUD of users could look like this:<br>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>HTTP Method</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/api/v1/users</td>
+                    <td>Returns all resources</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/api/v1/users/{id}</td>
+                    <td>Returns a single resource by id</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/api/v1/users</td>
+                    <td>Create a new resource</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/api/v1/users/{id}</td>
+                    <td>Update parts of the resource by id</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/api/v1/users/{id}</td>
+                    <td>Update the whole resource by id</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/api/v1/users/{id}</td>
+                    <td>Deletes a resource by id</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3>Code conventions / Clean Code</h3>
+        <p>
+            These are principles and guidelines for writing code that is easy
+            to read, understand, and maintain. It's a concept introduced by
+            Robert C. Martin in his book "Clean Code: A Handbook of Agile Software
+            Craftsmanship." The key idea behind Clean Code is to write code that
+            is both functional and well-structured, making it easier for other
+            developers to collaborate, modify, and extend.
+            Not every principle has to be strictly followed, and few are universally
+            agreed upon. These are guidelines and nothing more.<br><br>
+
+            There are far too many principles to list here. So here is a link
+            to a github repository about clean code for JavaScript:<br>
+            <a href="https://github.com/ryanmcdermott/clean-code-javascript">
+                https://github.com/ryanmcdermott/clean-code-javascript</a>
+        </p>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+        </div>
+        <br>
+        </p>
+    </div>
+</body>
+
+</html>
