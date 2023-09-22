@@ -24,11 +24,19 @@ app.get("/login", (req, res) => {
 
 app.get("/doc/:page", (req, res) => {
     const pageNum = Number(req.params.page);
-    if (!pageNum) {
-        res.send({ error: "The page number must be a number!" });
+    if (isNaN(pageNum) || pageNum < 1 || pageNum > 5) {
+        res.redirect("/error");
         return;
     }
     res.sendFile(path.resolve(`./public/documentation/doc${pageNum}.html`));
+});
+
+app.get("/error", (req, res) => {
+    res.sendFile(path.resolve("./public/error/error.html"));
+});
+
+app.get("*", (req, res) => {
+    res.redirect("/error");
 });
 
 app.post("/api/login", (req, res) => {
