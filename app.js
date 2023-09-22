@@ -22,24 +22,13 @@ app.get("/login", (req, res) => {
     res.sendFile(path.resolve("./public/login/login.html"));
 });
 
-app.get("/doc1", (req, res) => {
-    res.sendFile(path.resolve("./public/doc1/doc1.html"));
-});
-
-app.get("/doc2", (req, res) => {
-    res.sendFile(path.resolve("./public/doc2/doc2.html"));
-});
-
-app.get("/doc3", (req, res) => {
-    res.sendFile(path.resolve("./public/doc3/doc3.html"));
-});
-
-app.get("/doc4", (req, res) => {
-    res.sendFile(path.resolve("./public/doc4/doc4.html"));
-});
-
-app.get("/doc5", (req, res) => {
-    res.sendFile(path.resolve("./public/doc5/doc5.html"));
+app.get("/doc/:page", (req, res) => {
+    const pageNum = Number(req.params.page);
+    if (!pageNum) {
+        res.send({ error: "The page number must be a number!" });
+        return;
+    }
+    res.sendFile(path.resolve(`./public/documentation/doc${pageNum}.html`));
 });
 
 app.post("/api/login", (req, res) => {
