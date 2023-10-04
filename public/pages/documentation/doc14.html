@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 14</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/13"><button class="btn btn-primary"><strong>Page 13</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/15"><button class="btn btn-primary"><strong>Page 15</strong></button></a>
+                </div>
+            </div>
+            <h3>CRUDable REST API</h3>
+            <h4>GET Request</h4>
+            <p>
+                To make GET request endpoints for all and a single instance of a resource, this is the way to do it with
+                error handling:
+            </p>
+            <pre><code class="js">const mountains = [
+    { id: 1, name: "K2", height: 4675 },
+    { id: 2, name: "Mt. Everest", height: 6162 },
+    { id: 3, name: "Kilimanjaro", height: 5895 }
+];
+
+app.get("/mountains", (req, res) => {
+    res.send({ data: mountains });
+});
+
+app.get("/mountains/:id", (req, res) => {
+    const paramsMountainId = Number(req.params.id);
+    if (!paramsMountainId) {
+        res.send({ error: "The mountain id must be a number!" });
+        return;
+    }
+    const foundMountain = mountains.find((mountain) => mountain.id === paramsMountainId);
+    if (!foundMountain) {
+        return res.status(404).send("Mountain not found!");
+    }
+    res.send({ data: foundMountain });
+});</code></pre>
+            <p>
+                The endpoint for a single instance takes the id as a path variable to identify the resource to get.<br>
+            </p>
+            <h4>POST Request</h4>
+            <p>
+                To make a POST request endpoint, first you'll need to add this line at the top, after 'app' is initialized:
+            </p>
+            <pre><code class="js">app.use(express.json());</code></pre>
+            <p>
+                This adds middleware to the Express application. This middleware is responsible for parsing incoming JSON
+                requests.
+                When a client sends a JSON payload in the request body, this middleware will parse it and make it available
+                as
+                'req.body' in the route handlers.<br><br>
+                Once that is added, you can make requests that require a body, such as POST.<br>
+                Here is an example of a POST endpoint:
+            </p>
+            <pre><code class="js">app.post("/mountains", (req, res) => {
+    mountains.push(req.body)
+    res.send(req.body);
+});</code></pre>
+            <h4>PATCH Request</h4>
+            <p>
+                Modifies part of a resource. Like a POST request endpoint, this requires 'express.json()'.<br>
+                The endpoint takes the id as a path variable to identify the resource to edit.<br>
+                Here is an example of a PATCH request endpoint:
+            </p>
+            <pre><code class="js">app.patch("/mountains/:id", (req, res) => {
+    const paramsMountainId = Number(req.params.id);
+    if (!paramsMountainId) {
+        res.send({ error: "The mountain id must be a number!" });
+        return;
+    }
+    const updatedData = req.body;
+    const foundMountain = mountains.find((mountain) => mountain.id === paramsMountainId);
+    if (!foundMountain) {
+        return res.status(404).send("Mountain not found!");
+    }
+    if (updatedData.name !== undefined) {
+        foundMountain.name = updatedData.name;
+    }
+    if (updatedData.height !== undefined) {
+        foundMountain.height = updatedData.height;
+    }
+    res.send(foundMountain);
+});</code></pre>
+            <h4>PUT Request</h4>
+            <p>
+                Modifies an entire resource. Like POST and PATCH request endpoints, this requires 'express.json()'.<br>
+                The endpoint takes the id as a path variable to identify the resource to edit.<br>
+                Here is an example of a PUT request endpoint:
+            </p>
+            <pre><code class="js">app.put("/mountains/:id", (req, res) => {
+    const paramsMountainId = Number(req.params.id);
+    if (!paramsMountainId) {
+        res.send({ error: "The mountain id must be a number!" });
+        return;
+    }
+    const updatedData = req.body;
+    const foundMountain = mountains.find((mountain) => mountain.id === paramsMountainId);
+    if (!foundMountain) {
+        return res.status(404).send("Mountain not found!");
+    }
+    foundMountain.name = updatedData.name;
+    foundMountain.height = updatedData.height;
+    res.send(foundMountain);
+});</code></pre>
+            <h4>DELETE Request</h4>
+            <p>
+                Deletes a resource. <br>
+                The endpoint takes the id as a path variable to identify the resource to delete.<br>
+                Here is an example of a DELETE request endpoint:
+            </p>
+            <pre><code class="js">app.delete("/mountains/:id", (req, res) => {
+    const paramsMountainId = Number(req.params.id);
+    if (!paramsMountainId) {
+        res.send({ error: "The mountain id must be a number!" });
+        return;
+    }
+    const mountainIndex = mountains.findIndex((mountain) => mountain.id === paramsMountainId);
+    if (mountainIndex === -1) {
+        return res.status(404).send("Mountain not found!");
+    }
+    const deletedMountain = mountains.splice(mountainIndex, 1).pop();
+    res.send(deletedMountain);
+});</code></pre>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 25</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/24"><button class="btn btn-primary"><strong>Page 24</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right"></div>
+            </div>
+            <h3>Environment variables</h3>
+            <p>
+                In Node, you can define environment variables when you run the application. But this is dependent on your operating system and terminal.<br>
+                For Windows:
+            </p>
+            <pre><code class="bash">SET PORT=8080 && node app.js</code></pre>
+            <p>
+                For Mac and Linux:
+            </p>
+            <pre><code class="bash">PORT=8080 node app.js</code></pre>
+            <p>
+                To counter this, you can install a package like cross-env. This makes development with different operating systems seamless.<br>
+                To install cross-env, type:
+            </p>
+            <pre><code class="bash">npm i cross-env</code></pre>
+            <p>
+                Now you can set up scripts in your 'package.json' to run the application using the cross-env wrapper:<br>
+            </p>
+            <pre><code class="json">"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env PORT=8080 nodemon app.js",
+    "prod": "cross-env PORT=80 node app.js"
+},</code></pre>
+            <p>
+                Then, for example, use this command to run the application in a development environment:<br>
+            </p>
+            <pre><code class="bash">npm run dev</code></pre>
+            <br>
+            <p>
+                However, this method of storing environment variables in the 'package.json' is generally not recommended. 
+                It is a much better practice to store it either with a library like 'dotenv' or in a 'config.js' file.<br>
+                It is important to add the files that contain the environment variables to the .gitignore, so they 
+                do not get pushed to the repository. The 'package.json' needs to get pushed, so this is why it is a bad 
+                practice to have them in there.<br>
+                Here is an example using 'dotenv':
+            </p>
+            <pre><code class="js">// .env file
+API_KEY=mysecretkey
+
+// In your Node.js code
+const apiKey = process.env.API_KEY;</code></pre>
+            <p>
+                Here is an example using 'config.js':
+            </p>
+            <pre><code class="js">// config.js
+export default {
+    apiKey: 'mysecretkey',
+    dbConnectionString: 'mongodb://localhost/mydb',
+    // other configuration options
+};
+
+// In your Node.js code
+import config from './config.mjs';
+const apiKey = config.apiKey;</code></pre>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 7</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/6"><button class="btn btn-primary"><strong>Page 6</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/8"><button class="btn btn-primary"><strong>Page 8</strong></button></a>
+                </div>
+            </div>
+            <h3>package.json</h3>
+            <p>
+                The package.json file is the starting point to setting up an application with the Express framework.
+                It contains the configuration, metadata and dependencies of the project. The dependencies are the most vital.<br>
+                The file has to be located in the root project folder.<br>
+                Here is an example of a simple package.json file:
+            </p>
+            <pre><code class="json">{
+    "name": "pokemon",
+    "version": "0.0.1",
+    "description": "Pokemon website",
+    "type":"module",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+    },
+    "keywords": [
+        "pokemon",
+        "pokemon",
+        "battle",
+        "website",
+        "node",
+        "express"
+    ],
+    "author": "mads94i5",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "eslint": "^8.49.0"
+    }
+}</code></pre>
+            <br>
+            <p>
+                As part of the configuration, you can define scripts and run them in the terminal:
+            </p>
+            <pre><code class="bash">npm run test</code></pre>
+            <p>
+                This will run the test script, which in this case is just calling an echo and exiting.
+            </p>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

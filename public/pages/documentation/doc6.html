@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 6</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/5"><button class="btn btn-primary"><strong>Page 5</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/7"><button class="btn btn-primary"><strong>Page 7</strong></button></a>
+                </div>
+            </div>
+            <h3>Functions</h3>
+            <p>
+                Functions can be assigned to variables, passed as arguments and returned as values.<br>
+                There are several ways of writing functions in JavaScript.
+                Functions are hoisted, meaning they can be called before they are declared in the code.<br>
+                Example:<br>
+            </p>
+            <pre><code class="js">console.log(getRandomInt(5, 10));
+    
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max + 1 - min) + min)
+}</code></pre>
+            <p>
+                Writing the name of the function will return a reference to the function.<br>
+                Example:<br>
+            </p>
+            <pre><code class="js">console.log(getRandomInt);</code></pre>
+            <p>
+                Anonymous functions can also be created.<br>
+                Example:<br>
+            </p>
+            <pre><code class="js">const getRandomIntAnonymousFunction = function(min, max) {
+    return Math.floor(Math.random() * (max + 1 - min) + min)
+}</code></pre>
+            <p>
+                As well as arrow functions. Arrow functions can be written as one-liners with implicit return, otherwise
+                return has to be explicit.<br>
+                Example:<br>
+            </p>
+            <pre><code class="js">const getRandomIntArrowFunctionNoReturn = (min, max) => 
+    Math.floor(Math.random() * (max + 1 - min) + min);
+
+    const getRandomIntArrowFunction = (min, max) => {
+    return Math.floor(Math.random() * (max + 1 - min) + min)
+}</code></pre>
+            <p>
+                JavaScript also supports callback functions. A callback function is any reference to execute code that is
+                passed an argument in another piece of code.<br>
+                Example:<br>
+            </p>
+            <pre><code class="js">function genericActionperformer(genericAction, name) {
+    // do things..
+    return genericAction(name);
+}
+
+// jump is a callback arrow function
+const jump = (name) => `${name} is jumping`;
+
+// run is a callback anonymous function
+const run = function (name) { return `${name} is running`; }
+
+console.log("Callback:")
+console.log(genericActionperformer(jump, "Mads"));
+console.log(genericActionperformer(run, "Mads"));
+// inline function
+console.log(genericActionperformer((name) => `${name} is sleeping`, "Mads"));</code></pre>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

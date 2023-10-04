@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 10</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/9"><button class="btn btn-primary"><strong>Page 9</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/11"><button class="btn btn-primary"><strong>Page 11</strong></button></a>
+                </div>
+            </div>
+            <h3>Nodemon</h3>
+            <p>
+                Nodemon is a useful tool for development of Node applications as it automatically restarts
+                the application when file changes are detected.<br>
+                To use Nodemon, you typically install it globally or locally as a development dependency in
+                your Node application. You then start your Node application using 'nodemon' instead of 'node'
+                and Nodemon will handle automatic restarts during development.
+                Here is how to install Nodemon globally:
+            </p>
+            <pre><code class="bash">npm install -g nodemon</code></pre>
+            <p>
+                And this is how you would run your application with Nodemon:
+            </p>
+            <pre><code class="bash">nodemon app.js</code></pre>
+            <p>
+                By default nodemon detects changes to: .js, .mjs, .cjs and .json files.<br>
+                You can configure which files nodemon will detect changes for. Either by writing something like this in your
+                terminal:<br>
+            </p>
+            <pre><code class="bash">nodemon --ext html,js,json,css</code></pre>
+            <p>
+                But that has to be done every time you start your terminal.
+                Or alternatively, you can achieve it by creating a 'nodemon.json' configuration file in the root of your
+                project:
+            </p>
+            <pre><code class="json">{
+    "ext": "html,js,json,css"
+}</code></pre>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

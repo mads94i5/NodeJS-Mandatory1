@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 16</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/15"><button class="btn btn-primary"><strong>Page 15</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/17"><button class="btn btn-primary"><strong>Page 17</strong></button></a>
+                </div>
+            </div>
+            <h3>Deployment</h3>
+            <p>
+                The process of deploying your application varies a lot depending on the service
+                you decide on.
+                Vercel is designed for serverless deployments, which means it's optimized
+                for hosting static files and serverless functions. As a result you may run
+                into problems trying to do some things.<br><br>
+                Besides these limitations, it is very easy to set up a project with CI/CD on Vercel.
+                You simply log in to the dashboard, click:<br>
+                <i>"Add new" > "Project" > Select Git repository to import > Click "Deploy"</i><br>
+                For this to work, you will need a "vercel.json" file in the root directory of the project.
+                The .json file could look like this:
+            </p>
+            <pre><code class="json">{
+    "version": 2,
+    "builds": [
+    {
+        "src": "app.js",
+        "use": "@now/node"
+    }
+    ],
+    "routes": [
+    {
+        "src": "/(.*)",
+        "dest": "app.js"
+    }
+    ]
+}</code></pre>
+            <p>
+                "version": refers to the version of the Vercel configuration.<br>
+                "builds": defines the build settings, it tells Vercel how to build the application and prepare for
+                deployment.<br>
+                > "src": defines the source file for the application, also known as the entry point.<br>
+                > "use": tells Vercel to use a specific builder to build the project. In this case Node.<br>
+                "routes": defines routing rules for the application, determining how incoming requests are handled.<br>
+                > "src": here a regular expression is used to match all incoming paths.<br>
+                > "dest": specifies destination for requests that match the source pattern, here directing them all to
+                "app.js".<br><br>
+            </p>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

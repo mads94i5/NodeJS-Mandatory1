@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 24</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/23"><button class="btn btn-primary"><strong>Page 23</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/25"><button class="btn btn-primary"><strong>Page 25</strong></button></a>
+                </div>
+            </div>
+            <h3>Reading files</h3>
+            <p>
+                Reading files in Node requires you to import the file system abbreviated as 'fs', using:
+            </p>
+            <pre><code class="js">import fs from "fs";</code></pre>
+            <p>
+                After importing, files can be read either asynchronously or synchronously using:
+            </p>
+            <pre><code class="js">// Asynchronous:
+fs.readFile(filePath);
+// Synchronous:
+fs.readFileSync(filePath);</code></pre>
+            <p>
+                By default this will return a Buffer object. To get the text in the binary data 
+                of the Buffer object, you can apply an 'utf-8' parameter or call 'toString()' on the method:
+            </p>
+            <pre><code class="js">// utf-8 parameter:
+fs.readFile(filePath, 'utf-8');
+// toString():
+fs.readFile(filePath).toString();</code></pre>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 20</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/19"><button class="btn btn-primary"><strong>Page 19</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/21"><button class="btn btn-primary"><strong>Page 21</strong></button></a>
+                </div>
+            </div>
+            <h3>XSS</h3>
+            <p>
+                Cross Site Scripting is a vulnerability that allows malicious actors to inject scripts into an
+                application.<br>
+                For example, this can happen when you refer to a HTML element and take third party input for 'innerHTML'
+                without sanitizing it:<br>
+            </p>
+            <pre><code class="js">const resultDiv = document.getElementById("result-div");
+resultDiv.innerHTML = fetchGetJson(`&lt;third party api URL&gt;`);</code></pre>
+            <p>
+                For this reason, it is important to sanitize inputs. For example; when setting .innerHTML on an element or an &lt;img&gt; element.<br>
+                This can be achieved by manually sanitizing the inputs before they are used or using a library, like DOMPurify.
+            </p>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 9</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/8"><button class="btn btn-primary"><strong>Page 8</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/10"><button class="btn btn-primary"><strong>Page 10</strong></button></a>
+                </div>
+            </div>
+            <h3>Sending data with GET requests</h3>
+            <p>
+                Once an Express web server is set up, it is very simple to set up an endpoint
+                and send data to a client. For APIs it's important to send data in json format to make
+                the API compatible with any platform.<br>
+                Endpoints should be inserted after the creation of the Express application and before the
+                app.listen function call, to ensure that they are properly registered and available
+                for incoming requests.<br>
+                This endpoint '/helloworld' returns a json object containing some data:
+            </p>
+            <pre><code class="js">const otherData = 123;
+    
+app.get("/helloworld", (req, res) => {
+    res.send({ data: "Hello, world!", moreData: otherData });
+});</code></pre>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

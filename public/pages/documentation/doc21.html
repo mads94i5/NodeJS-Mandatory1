@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 21</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/20"><button class="btn btn-primary"><strong>Page 20</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/22"><button class="btn btn-primary"><strong>Page 22</strong></button></a>
+                </div>
+            </div>
+            <h3>Client-side redirection vs. server-side redirection</h3>
+            <p>
+                These are two different approaches to navigating from one web page to another. They differ in where the logic is handled and when it occurs:<br>
+            </p>
+            <h4>Client-side redirection:</h4>
+            <ul>
+                <li><strong>Handling:</strong> Client-side redirection is achieved using client-side scripting languages such as JavaScript.</li>
+                <li><strong>When:</strong> It occurs after the inital HTML page has been loaded in the users browser.</li>
+                <li><strong>Usage:</strong> Commonly used for navigating within a single-page application (SPA) or for handling client-side routing within a web application.</li>
+                <li><strong>Example:</strong> When a user clicks a button of link on a web page, JavaScript code in the current page can change the 'window.location' property to redirect the user to a different URL:</li>
+            </ul>
+            <pre><code class="html">window.location.href = '/new-page';</code></pre>
+            <p>
+                Another way of redirecting is also using the meta HTML tag:
+            </p>
+            <pre><code class="html">&lt;meta http-equiv="refresh" content="5;url=/new-url"&gt;</code></pre>
+            <p>
+                Or the anchor tag:
+            </p>
+            <pre><code class="html">&lt;a href="/new-page"&gt;Click here to go to the new page&lt;/a&gt;</code></pre>
+            <p><strong>Pros:</strong></p>
+            <ul>
+                <li>Provides a seamless user experience without requiring a full page reload.</li>
+                <li>Useful for handling dynamic client-side navigation within a web application.</li>
+            </ul>
+            <p><strong>Cons:</strong></p>
+            <ul>
+                <li>Depends on client-side scripting, which can be disabled or blocked by users.</li>
+                <li>Search engines may not crawl or index client-side routes effectively.</li>
+                <li>Will be slow to load initially, as more data is sent to the client.</li>
+            </ul>
+            <h4>Server-side redirection:</h4>
+            <ul>
+                <li><strong>Handling:</strong> Server-side redirection is handled by the web server itself or in server-side code.</li>
+                <li><strong>When:</strong> It occurs before the initial HTML page is sent to the user's browser.</li>
+                <li><strong>Usage:</strong> Commonly used for permanently or temporarily redirecting users from one URL to another, handling URL changes or enforcing security and access control.</li>
+                <li><strong>Example:</strong> In an Express.js application, you can use server-side routing to redirect requests to different routes or URLs based on specific conditions:</li>
+            </ul>
+            <pre><code class="js">app.get('/old-page', (req, res) => {
+    res.redirect(301, '/new-page'); // Permanent (301) redirection
+});</code></pre>
+            <p><strong>Pros:</strong></p>
+            <ul>
+                <li>More reliable and consistent, as it does not depend on client-side scripting.</li>
+                <li>Useful for implementing SEO-friendly redirects and enforcing security policies.</li>
+            </ul>
+            <p><strong>Cons:</strong></p>
+            <ul>
+                <li>May require a full page reload, which can lead to a less seamless user experience in some cases.</li>
+                <li>Cannot be used for dynamic client-side navigation within a single-page application.</li>
+            </ul>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

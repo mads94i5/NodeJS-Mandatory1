@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 17</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/16"><button class="btn btn-primary"><strong>Page 16</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/18"><button class="btn btn-primary"><strong>Page 18</strong></button></a>
+                </div>
+            </div>
+            <h3>Exporting and importing in frontend</h3>
+            <p>
+                Exporting and importing in the frontend, requires that you use the type="module" attribute on the
+                &lt;script&gt; HTML tag when importing the JavaScript file.<br>
+                This allows you to split the code into seperate files or modules, making the code more
+                maintainable and reusable.<br>
+                To be able to import functions and variables, you need to use the 'export' keyword as such:
+            </p>
+            <pre><code class="js">// module.js
+export function add(a, b) {
+    return a + b;
+}
+
+export const pi = 3.14159;</code></pre>
+            <p>
+                And this is how you would import it into a HTML page:
+            </p>
+            <pre><code class="html">&lt;script type="module" src="./module.js"&gt;&lt;/script&gt;</code></pre>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

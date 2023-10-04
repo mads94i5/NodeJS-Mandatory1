@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 15</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/14"><button class="btn btn-primary"><strong>Page 14</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/16"><button class="btn btn-primary"><strong>Page 16</strong></button></a>
+                </div>
+            </div>
+            <h3>Fetch</h3>
+            <p>
+                Fetch is a built-in function in JavaScript that allows you to make
+                network requests to fetch resources, typically data, from a specified URL.
+                It performs an asynchronous HTTP request.<br>
+                Below is an example of the basic anatomy of a fetch GET request:<br>
+            </p>
+            <pre><code class="js">fetch("https://insert.url/here")
+    .then((response) => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error("Fetch error:", error);
+});</code></pre>
+            <p>
+                First, you specify the URL you want to fetch from, optionally you can provide the options of the
+                request.<br>
+                Then you check if your response was "OK". (HTML Status 200)<br>
+                If it's "OK", then you return the response in .json format.<br>
+                Then you can do something with the json data. In this case just writing to console.<br>
+                You make sure to put a "catch", to handle any errors.<br><br>
+                It can be very benefitial to put fetch in a standardized method, like this:<br>
+            </p>
+            <pre><code class="js">async function fetchGetJson(URL, token = null) {
+    let options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+    if (token) {
+        options.headers.Authorization = `Bearer ${token}`;
+    }
+    const data = await fetch(URL, options).then(handleHttpErrors);
+    return data;
+}
+
+async function handleHttpErrors(res) {
+    if (!res.ok) {
+        const errorResponse = await res.json();
+        const error = new Error(errorResponse.message);
+        // @ts-ignore
+        error.fullResponse = errorResponse;
+        throw error;
+    }
+    return res.json();
+}</code></pre>
+            <p>
+                This makes the code much more reusable, and includes an optional parameter for including a token, in case an
+                endpoint requires authorization.<br>
+                For functions doing HTTP requests, it is important to use async await, as it makes the asynchronous nature
+                of fetch operate in a more synchronous-like way.<br>
+                This means that any code following an async await function will not be executed until the response has been
+                received by the HTTP request.<br>
+            </p>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

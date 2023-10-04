@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 1</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/2"><button class="btn btn-primary"><strong>Page 2</strong></button></a>
+                </div>
+            </div>
+            <h3>Intro to Node.JS</h3>
+            <p>
+                Node is an open source, cross platform runtime environment, where you can run JavaScript.<br>
+                Can be used for server applications, GUI applications, command line applications etc.<br><br>
+            </p>
+            <h4>Installation</h4>
+            <p>
+                Download and run the installer from <a href="https://nodejs.org">nodejs.org</a> on
+                Windows/macOS/Linux.<br>
+                Or follow the instructions to 
+                <a href="https://nodejs.org/en/download/package-manager">install via package manager</a>.
+            </p>
+            <h4>Set up project</h4>
+            <p>
+                Go to github and create a new repository with "Node" gitignore. When using vscode, also add:
+                .vscode<br>
+                Open a terminal, navigate to the desired project directory using:
+            </p>
+            <pre><code class="bash">cd &lt;directoryname&gt;</code></pre>
+            <p>
+                Then clone the github project by writing:
+            </p>
+            <pre><code class="bash">git clone &lt;url&gt;</code></pre>
+            <p>
+                Replace &lt;url&gt; with the URL of the github repository.<br>
+                Once it's finished cloning, simply write:
+            </p>
+            <pre><code class="bash">code .</code></pre>
+            <p>
+                This will open the current directory in VSCode.<br>
+                We can do this, since we will already be in the directory of the project.<br>
+                Now check the Node version, to make sure everything is working correctly:<br>
+            </p>
+            <pre><code class="bash">node -v</code></pre>
+            <p>
+                If the version number gets echoed in the terminal, Node is working.<br>
+                Now, to run JavaScript files with Node, navigate to the directory of the file and type:<br>
+            </p>
+            <pre><code class="bash">node &lt;filename&gt;</code></pre>
+            <p>
+                You can also open Node REPL (Read-eval-print loop) by simply typing:
+            </p>
+            <pre><code class="bash">node</code></pre>
+            <p>
+                REPL can be used to write and execute code directly in the terminal.<br>
+                For example, if you write:
+            </p>
+            <pre><code class="bash">2+2</code></pre>
+            <p>
+                And then press enter, then "4" will be printed to the terminal as well.<br><br>
+                Now, to push code changes to the github repository, we first need to add our changes to git:<br>
+            </p>
+            <pre><code class="bash">git add -A</code></pre>
+            <p>
+                The modifer "-A" means "all", which means all changes will be added to git.<br>
+                Meanwhile, the modifer "." only adds the current path and all subpaths.<br>
+                To commit what we added to git, write:<br>
+            </p>
+            <pre><code class="bash">git commit -m "&lt;commit message&gt;"</code></pre>
+            <p>
+                Then we have committed our local changes to our local git branch.<br>
+                To push our local git branch to the github repository, type:<br>
+            </p>
+            <pre><code class="bash">git push</code></pre>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

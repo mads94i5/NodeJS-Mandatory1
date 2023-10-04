@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 19</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/18"><button class="btn btn-primary"><strong>Page 18</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/20"><button class="btn btn-primary"><strong>Page 20</strong></button></a>
+                </div>
+            </div>
+            <h3>Serving static in Express</h3>
+            <p>
+                To serve static elements in Express, which is conventionally called "public", you need to use following line
+                in your "app.js":
+            </p>
+            <pre><code class="js">app.use(express.static("public"));</code></pre>
+            <p>
+                This will allow all files in the "public" folder to be accessed by a web browser.<br>
+                Meaning this is necessary if you want to serve .js, .json, .css or other files to the web browser.<br>
+                It is important to not have any files in "public" that should not be publicly available.<br>
+            </p>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

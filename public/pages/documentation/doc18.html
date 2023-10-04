@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 18</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/17"><button class="btn btn-primary"><strong>Page 17</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/19"><button class="btn btn-primary"><strong>Page 19</strong></button></a>
+                </div>
+            </div>
+            <h3>CommonJS vs. ES6 Modules in Node.js</h3>
+            <p>
+                These are two different approaches to modularizing backend code with Node.js.<br>
+                The main differences are:
+            </p>
+            <h4>CommonJS</h4>
+            <ul>
+                <li>'require("./filename")' for importing</li>
+                <li>'module.exports = { exportedFunction, exportedVariable }' for exporting</li>
+                <li>Default in Node.js</li>
+                <li>Using '__dirname + "/path/filename.html"' to locate a file in the working directory.</li>
+            </ul>
+            <h4>ES6 Modules (type module)</h4>
+            <ul>
+                <li>'import { exportedFunction } from "./path/filename.js"' for importing</li>
+                <li>Use keyword 'export' leading functions and variables to export</li>
+                <li>Requires "type": "module" at the root of the package.json object file.</li>
+                <li>Using 'import path from "path";' and 'path.resolve("./path/filename.html")' to locate a file in the working directory</li>
+            </ul>
+            <p>
+                It can be argued that ES6 modules is the better approach, as this will use the same method for
+                importing and exporting in the backend as the frontend. This makes the code more reusable and
+                streamlined.<br>
+            </p>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

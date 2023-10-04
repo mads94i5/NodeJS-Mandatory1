@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 11</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/10"><button class="btn btn-primary"><strong>Page 10</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/12"><button class="btn btn-primary"><strong>Page 12</strong></button></a>
+                </div>
+            </div>
+            <h3>Loops and loop methods in JS</h3>
+            <p>
+                There are a few common rules when using loops in modern JavaScript.<br>
+            </p>
+            <ul>
+                <li>Always use loop methods in modern JS.</li>
+                <li>'for' loops are only used when "finger counting" is needed. (counting to a number)</li>
+            </ul>
+            <p>
+                These rules exist for several reasons. Among these are:
+            </p>
+            <ul>
+                <li>Brevity</li>
+                <li>Clarity (Loop methods communicate intent)</li>
+                <li>Avoid indexing errors (Out Of Bounds)</li>
+            </ul>
+            <p>
+                'for' loop vs forEach example:
+            </p>
+            <pre><code class="js">for (let i = 0; i &lt; numbers.length; i++) {
+    console.log(numbers[i]);
+}
+
+numbers.forEach((number) => console.log(number));</code></pre>
+            <ul>
+                <li>number of/in numbers confusion</li>
+                <li>Not being able to access both element and index</li>
+                <li>Side effects</li>
+            </ul>
+            <pre><code class="js">let oddIndexSideEffect = [];
+let index = 0;
+for (number of numbers) {
+    if (index % 2 === 1) {
+        oddIndexSideEffect.push(Number(number));
+    }
+    index++;
+}
+console.log(oddIndexSideEffect);
+
+const oddNumbers = numbers.filter((element, index) => index % 2 === 1);
+console.log(oddNumbers);</code></pre>
+            <ul>
+                <li>Don't mutate the original list</li>
+            </ul>
+            <pre><code class="js">for (index in numbers) {
+    numbers[index] = numbers[index] * 2;    
+}
+
+const doubledList = numbers.map(number => number * 2);
+
+console.log(numbers);
+console.log(doubledList);</code></pre>
+            <p>
+                A major thing to be aware of, is side effects. If you use a forEach loop to iterate over,
+                and change values of a list, you may encounter side effects. This can happen if other
+                parts of the code relies on the values of the original list. So for this reason, any
+                change to a list should produce a new list instead of changing the existing one.<br>
+            </p>
+            <p>
+                The different loop methods that exist in JavaScript are:
+            </p>
+            <ul>
+                <li>forEach</li>
+                <li>map</li>
+                <li>filter</li>
+                <li>find</li>
+                <li>sort</li>
+                <li>reduce</li>
+            </ul>
+            <p>
+                Here is an example of how to make changes to a list, the correct way:
+            </p>
+            <pre><code class="js">const trolls = [
+    { name: "anonymous", trollLevel: 8 },
+    { name: "Hugo", trollLevel: 9001 },
+    { name: "Mig", trollLevel: 69 }
+];
+
+const upgradedTrolls = trolls.map((troll) => {
+    troll.trollLevel += 5;
+    return troll;
+});
+console.log("upgradedTrolls:", upgradedTrolls);</code></pre>
+            <p>
+                Here is an example of how to filter a list, only getting the trolls which levels are an odd number:
+            </p>
+            <pre><code class="js">const oddTrolls = upgradedTrolls.filter(checkIfTrollLevelIsOdd);
+    
+function checkIfTrollLevelIsOdd(troll) {
+    return troll.trollLevel % 2 === 1;
+};
+console.log("Odd trolls:", oddTrolls);</code></pre>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

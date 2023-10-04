@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 3</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/2"><button class="btn btn-primary"><strong>Page 2</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/4"><button class="btn btn-primary"><strong>Page 4</strong></button></a>
+                </div>
+            </div>
+            <h3>REST API conventions</h3>
+            <p>
+                In REST, everything is treated as a resource, which is defined by a unique
+                URL. Resources can represent entities, such as users and products.
+                There are conventions for the URL path of resources, depending on the
+                HTTP methods used.<br>
+                Firstly, it is common to use '/api' for an application programming interface URL.<br>
+                Secondly, for versioning purposes and backwards compatibility, using '/v1' etc.
+                with the version number of the API is common practice. This ensures that anyone
+                using the API will not have their applications broken by updates to the API.<br>
+                Thirdly, when naming resources, it's a convention to use plural nouns
+                for resource names to indicate you are working with a collection of items.
+                For example '/users' instead of '/user'.<br>
+                A full CRUD of users could look like this:<br>
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/v1/users</td>
+                        <td>Returns all resources</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/v1/users/{id}</td>
+                        <td>Returns a single resource by id</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/v1/users</td>
+                        <td>Create a new resource</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/v1/users/{id}</td>
+                        <td>Update parts of the resource by id</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/v1/users/{id}</td>
+                        <td>Update the whole resource by id</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/v1/users/{id}</td>
+                        <td>Deletes a resource by id</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 13</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/12"><button class="btn btn-primary"><strong>Page 12</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/14"><button class="btn btn-primary"><strong>Page 14</strong></button></a>
+                </div>
+            </div>
+            <h3>Serving HTML in Express</h3>
+            <p>
+                To serve HTML in Express, you can make an endpoint utilizing sendFile, like this:
+            </p>
+            <pre><code class="js">app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/home.html");
+});</code></pre>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

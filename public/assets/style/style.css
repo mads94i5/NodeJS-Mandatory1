@@ -51,6 +51,12 @@ a:hover {
     color: rgb(0, 70, 0);
 }
 
+.sticky-hr {
+    position: sticky;
+    top: 6em;
+    z-index: 100;
+}
+
 .login-area {
     margin-left: auto;
     margin-right: 1em;
@@ -84,6 +90,44 @@ a:hover {
 .btn-row {
     display: flex;
     align-items: center;
+}
+
+.toc {
+    position: fixed;
+    overflow-y: scroll; 
+    max-height: calc(80vh - 4em);
+    border-top: 3px solid rgb(125, 185, 34);
+    border-left: 3px solid rgb(125, 185, 34);
+    border-bottom: 3px solid green;
+    border-right: 3px solid green;
+}
+
+.toc ul {
+    list-style-type: none;
+}
+
+@media (max-width: 767px) {
+    .toc {
+        display: none;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .toc p {
+        padding-right: 1em;
+    }
+    .toc li {
+        font-size: smaller;
+        padding-right: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    .toc p,
+    .toc li {
+        padding-right: 2em;
+    }
 }
 
 table {

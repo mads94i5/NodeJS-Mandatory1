@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 8</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/7"><button class="btn btn-primary"><strong>Page 7</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/9"><button class="btn btn-primary"><strong>Page 9</strong></button></a>
+                </div>
+            </div>
+            <h3>Express</h3>
+            <p>
+                When you have created a 'package.json' file and added "express" to the dependencies, you
+                can type the following in the terminal to install the dependencies listed in package.json:
+            </p>
+            <pre><code class="bash">npm install</code></pre>
+            <p>
+                Alternatively, you can create a default 'package.json' and install Express like this:
+            </p>
+            <pre><code class="bash">npm i express -y</code></pre>
+            <p>
+                After Express is finished installing, you create an 'app.js' file in the root project folder.<br>
+                Here is an example of an 'app.js' file to setup a basic HTTP server:
+            </p>
+            <pre><code class="js">const express = require("express");
+const app = express();
+
+const PORT = 8080;
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log("Server failed to start:", error);
+        return;
+    }
+    console.log("Server started at port:", PORT);
+});</code></pre>
+            <p>
+                First we import Express using the "require" function. The "express" variable will contain the
+                functionality provided by Express, which allows you to create and configure a web server.<br>
+                The second line creates an instance of an Express application. The "app" variable will be used
+                to configure routes, middleware, and other aspects of the web server.<br>
+                Then we define the port to be used by the web server and tell the application to listen to the
+                specified port. The "listen" function starts the server, provided an error doesn't happen.<br>
+            </p>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

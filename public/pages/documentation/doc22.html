@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            $TOC_ELEMENT
+        </div>
+        <div class="col-sm-8 col-sm-offset-1">
+            <h1 class="text-center">Documentation | Page 22</h1><br>
+            <div class="row btn-row">
+                <div class="col-sm-4">
+                    <a href="/docs/21"><button class="btn btn-primary"><strong>Page 21</strong></button></a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="/docs/23"><button class="btn btn-primary"><strong>Page 23</strong></button></a>
+                </div>
+            </div>
+            <h3>Fetching in the client vs. fetching in the backend</h3>
+            <h4>Client-side:</h4>
+            <p>
+                In client-side data fetching, the client (browser) makes requests to external resources or APIs.
+                JavaScript running in the client's browser handles the data fetch requests.<br>
+                That infers some attributes:
+            </p>
+            <ul>
+                <li><strong>Real-time updates:</strong> Client-side data fetching is suitable for scenarios where 
+                    real-time updates and interactivity are essential. It allows web applications to fetch data 
+                    on-demand as users interact with the interface.</li>
+                <li><strong>Reduced server load:</strong> Since data fetching is offloaded to the client, it 
+                    reduces the server's load and allows it to focus on other tasks.</li>
+                <li><strong>Security considerations:</strong> While client-side code can make requests to external 
+                    resources, it's essential to be cautious with API keys or sensitive data exposed in client-side 
+                    code, as it's more accessible to potential attackers.</li>
+                <li><strong>Cross-origin limitations:</strong> Client-side code is subject to the same-origin policy, 
+                    which can restrict making cross-origin requests directly from the browser. Techniques like CORS 
+                    (Cross-Origin Resource Sharing) headers are used to enable cross-origin requests.</li>
+                <li><strong>SEO challenges:</strong> Content fetched on the client side may not be readily accessible 
+                    to search engine crawlers, as some crawlers may not execute JavaScript. This can impact SEO.</li>
+            </ul>
+            <h4>Server-side:</h4>
+            <p>
+                In the following example, the '/proxyserver' route fetches data from  an external source (Google's 
+                homepage) on behalf of the client. When a client makes a request to this route, the server relays this
+                to the client.<br>
+                Here is the example:
+            </p>
+            <pre><code class="js">app.get("/proxyserver", (req, res) => {
+    fetch("http://www.google.com/")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("HTTP Error!");
+            }
+            return response.text();
+        })
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.error("Fetch error:", error);
+        })
+});</code></pre>
+            <p>
+                Server-side fetching infers the following attributes:
+            </p>
+            <ul>
+                <li><strong>Security and control:</strong> Server-side data fetching is typically used for 
+                    scenarios where you need to control and secure access to external resources. The server 
+                    acts as a middleman, making requests to external APIs or services, and then serving the data 
+                    to clients. This approach can help protect sensitive API keys or credentials because they are 
+                    not exposed to the client-side code.</li>
+                <li><strong>Cross-origin requests:</strong> Server-side code can make cross-origin requests without 
+                    running into issues related to the same-origin policy. This is especially useful when fetching 
+                    data from external domains.</li>
+                <li><strong>Data transformation:</strong> Server-side code can transform or process the fetched data 
+                    before sending it to the client. In the example, we're parsing the response body as text 
+                    before sending it to the client.</li>
+                <li><strong>SEO:</strong> Server-side rendering and data fetching are crucial for SEO because search 
+                    engine crawlers can easily index content that is present in the initial HTML response.</li>
+                <li><strong>Resource usage:</strong> The server is responsible for making the external requests, 
+                    which means that server resources are used for fetching and processing data. This can increase 
+                    server load.</li>
+            </ul>
+            <p>
+                In conclusion, it depends what you are trying to achieve when deciding to use one over the other.
+            </p>
+            <br>
+            <!--
+            <div class="text-center">
+                <button class="btn btn-success" onclick="scrollToTop()"><strong>Back to top</strong></button>
+            </div>
+             -->
+            <br>
+        </div>
+    </div>
+</div>

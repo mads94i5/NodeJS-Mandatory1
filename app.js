@@ -1,38 +1,38 @@
 import express from "express";
 const app = express();
-import path from "path";
+import * as routes from "./utils/routes.js";
 import { login } from "./utils/login.js"
+import { getDocsMaxPageNumber } from "./utils/utils.js";
 
 app.use(express.json());
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./public/home/home.html"));
-});
-
-app.get("/nodejs", (req, res) => {
-    res.sendFile(path.resolve("./public/nodejs/nodejs.html"));
+    res.send(routes.homePage);
 });
 
 app.get("/admin", (req, res) => {
-    res.sendFile(path.resolve("./public/admin/admin.html"));
+    res.send(routes.adminPage);
 });
 
 app.get("/login", (req, res) => {
-    res.sendFile(path.resolve("./public/login/login.html"));
+    res.send(routes.loginPage);
 });
 
-app.get("/doc/:page", (req, res) => {
+app.get("/docs/:page", (req, res) => {
     const pageNum = Number(req.params.page);
-    if (isNaN(pageNum) || pageNum < 1 || pageNum > 5) {
-        res.redirect("/error");
-        return;
+    const maxPageNumber = getDocsMaxPageNumber(routes);
+
+    if (isNaN(pageNum) || pageNum < 1 || pageNum > maxPageNumber) {
+        return res.redirect("/error");
     }
-    res.sendFile(path.resolve(`./public/documentation/doc${pageNum}.html`));
+    
+    const routeKey = `docs${pageNum}Page`;
+    res.send(routes[routeKey]);
 });
 
 app.get("/error", (req, res) => {
-    res.sendFile(path.resolve("./public/error/error.html"));
+    res.send(routes.errorPage);
 });
 
 app.get("*", (req, res) => {
